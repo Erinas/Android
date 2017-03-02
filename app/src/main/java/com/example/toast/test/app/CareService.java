@@ -64,7 +64,7 @@ public class CareService extends Service {
     public void onDestroy(){
         super.onDestroy();
         TBreak = false;
-        Log.d(TAG,"Destory1");
+        Log.d(TAG,"Destory");
     }
     @Nullable
     @Override
