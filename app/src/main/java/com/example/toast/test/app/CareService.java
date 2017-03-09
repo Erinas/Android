@@ -39,6 +39,7 @@ public class CareService extends Service {
     private String userId;
     String[] capIdtmp = {"",""};
     private String Care_URL;
+    private Date Server_updateTime,updateTime;
     @Override
     public void onCreate(){
         super.onCreate();
@@ -81,7 +82,10 @@ public class CareService extends Service {
                 //data.put("userId", "1234"); //test
                 try {
                     jsonArray = new JSONArray(care.sendPostRequest(Care_URL, data));
-                    doCare(jsonArray);
+                    //ToDo get Server_updateTime
+                    if(updateTime != Server_updateTime) {
+                        doCare(jsonArray);
+                    }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
